@@ -11,8 +11,8 @@ st.title("Gráficos Anúncios de Carros")
 
 # Barra lateral
 st.sidebar.title("Opções de Gráficos:")
-hist_button = st.sidebar.button("Criar Histograma")
-dispersao_button = st.sidebar.button("Criar Gráfico de Dispersão")
+hist_button = st.sidebar.checkbox("Criar Histograma")
+dispersao_button = st.sidebar.checkbox("Criar Gráfico de Dispersão")
 
 # Histograma
 if hist_button: # se o botão for clicado
