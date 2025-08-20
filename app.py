@@ -3,8 +3,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-# Caminho relativo: sobe um nível (..), depois entra em 'dados'
-csv_path = os.path.join("..", "dados", "vehicles.csv")
+# Caminho correto para app.py, que está na raiz do projeto
+csv_path = os.path.join("dados", "vehicles.csv")
 
 # Carrega o CSV
 car_data = pd.read_csv(csv_path)
