@@ -1,9 +1,13 @@
+import os
 import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-# Carregando os dados
-car_data = pd.read_csv((r"C:\Users\User\Desktop\TripleTen\projetosprint5\dados\vehicles.csv"))
+# Caminho relativo: sobe um nível (..), depois entra em 'dados'
+csv_path = os.path.join("..", "dados", "vehicles.csv")
+
+# Carrega o CSV
+car_data = pd.read_csv(csv_path)
 
 hist_button = st.button('Criar histograma') # criar um botão
         
@@ -29,7 +33,6 @@ if build_histogram: # se a caixa de seleção for selecionada
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
-
 
 # Configuração do Streamlit
 st.set_page_config(page_title="Histograma Interativo", layout="wide")
