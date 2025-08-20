@@ -7,13 +7,12 @@ import streamlit as st
 csv_path = os.path.join("dados", "vehicles.csv")
 car_data = pd.read_csv(csv_path)
 
-st.title("Dashboard de Anúncios de Carros")
+st.title("Gráficos Anúncios de Carros")
 
 # Barra lateral
-# Sidebar
 st.sidebar.title("Opções de Gráficos:")
-hist_button = st.sidebar.checkbox("Criar Histograma")
-dispersao_button = st.sidebar.checkbox("Criar Gráfico de Dispersão")
+hist_button = st.sidebar.button("Criar Histograma")
+dispersao_button = st.sidebar.button("Criar Gráfico de Dispersão")
 
 # Histograma
 if hist_button: # se o botão for clicado
@@ -22,8 +21,8 @@ if hist_button: # se o botão for clicado
             
     # criar um histograma
     st.subheader("Histograma")
-    fig = px.histogram(car_data, x="odometer")
-        
+    fig = px.histogram(car_data, x="odometer", title="Histograma Anúncios de Carros")    
+
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
 
@@ -34,7 +33,7 @@ if dispersao_button: # se a caixa de seleção for selecionada
 
     # criar um gráfico de dispersão
     st.subheader("Gráfico de Dispersão:")
-    fig = px.scatter(car_data, x="odometer", y="price", title="Gráfico de Dispersão: Odometer vs Price")
+    fig = px.scatter(car_data, x="odometer", y="price", title="Gráfico de Dispersão: Odometro x Preço")
   
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
