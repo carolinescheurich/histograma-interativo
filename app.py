@@ -5,43 +5,36 @@ import streamlit as st
 
 # Caminho correto para app.py, que está na raiz do projeto
 csv_path = os.path.join("dados", "vehicles.csv")
-
-# Carrega o CSV
 car_data = pd.read_csv(csv_path)
 
-hist_button = st.button('Criar histograma') # criar um botão
-        
+st.title("Dashboard de Anúncios de Carros")
+
+# Barra lateral
+# Sidebar
+st.sidebar.title("Filtros e Opções")
+hist_button = st.sidebar.button("Criar Histograma")
+dispersao_button = st.sidebar.checkbox("Criar Gráfico de Dispersão")
+
+# Histograma
 if hist_button: # se o botão for clicado
     # escrever uma mensagem
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
             
     # criar um histograma
+    st.subheader("Histograma")
     fig = px.histogram(car_data, x="odometer")
         
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
 
-# criar uma caixa de seleção
-build_histogram = st.checkbox('Criar um histograma')
-
-if build_histogram: # se a caixa de seleção for selecionada
+# Gráfico de dispersão
+if dispersao_button: # se a caixa de seleção for selecionada
     # escrever uma mensagem
-    st.write('Criando um histograma para a coluna odometer')
+    st.write('Criando um Gráfico de Dispersão para o conjunto de dados de anúncios de vendas de carros')
 
-    # criar um histograma
-    fig = px.histogram(car_data, x="odometer")
-
+    # criar um gráfico de dispersão
+    st.subheader("Gráfico de Dispersão:")
+    fig = px.scatter(car_data, x="odometer", y="price", color="year", hover_name="make", size="price", title="Gráfico de Dispersão: Odometer vs Price")
+  
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
-
-# Configuração do Streamlit
-#st.set_page_config(page_title="Histograma Interativo", layout="wide")
-#st.title("Histograma Interativo de Vendas de Carros")
-#st.sidebar.header("Configurações do Histograma")
-#st.sidebar.write("Use os botões e caixas de seleção para criar histogramas interativos com os dados de vendas de carros.")
-# Exibir os dados
-#st.sidebar.subheader("Dados de Vendas de Carros")
-#st.sidebar.dataframe(car_data.head(10), width=300, height=200)
-# Exibir informações sobre o projeto
-#st.sidebar.subheader("Sobre o Projeto")
-#st.sidebar.write("Este projeto tem o intuito de criar histogramas interativos com os dados de vendas de carros. Você pode explorar os dados e visualizar a distribuição dos odômetros dos veículos.")
