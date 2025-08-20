@@ -11,8 +11,8 @@ st.title("Dashboard de Anúncios de Carros")
 
 # Barra lateral
 # Sidebar
-st.sidebar.title("Filtros e Opções")
-hist_button = st.sidebar.button("Criar Histograma")
+st.sidebar.title("Opções de Gráficos:")
+hist_button = st.sidebar.checkbox("Criar Histograma")
 dispersao_button = st.sidebar.checkbox("Criar Gráfico de Dispersão")
 
 # Histograma
@@ -34,7 +34,7 @@ if dispersao_button: # se a caixa de seleção for selecionada
 
     # criar um gráfico de dispersão
     st.subheader("Gráfico de Dispersão:")
-    fig = px.scatter(car_data, x="odometer", y="price", color="year", hover_name="make", size="price", title="Gráfico de Dispersão: Odometer vs Price")
+    fig = px.scatter(car_data, x="odometer", y="price", title="Gráfico de Dispersão: Odometer vs Price")
   
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
