@@ -35,13 +35,13 @@ if build_histogram: # se a caixa de seleção for selecionada
     st.plotly_chart(fig, use_container_width=True)
 
 # Configuração do Streamlit
-st.set_page_config(page_title="Histograma Interativo", layout="wide")
-st.title("Histograma Interativo de Vendas de Carros")
-st.sidebar.header("Configurações do Histograma")
-st.sidebar.write("Use os botões e caixas de seleção para criar histogramas interativos com os dados de vendas de carros.")
+#st.set_page_config(page_title="Histograma Interativo", layout="wide")
+#st.title("Histograma Interativo de Vendas de Carros")
+#st.sidebar.header("Configurações do Histograma")
+#st.sidebar.write("Use os botões e caixas de seleção para criar histogramas interativos com os dados de vendas de carros.")
 # Exibir os dados
-st.sidebar.subheader("Dados de Vendas de Carros")
-st.sidebar.dataframe(car_data.head(10), width=300, height=200)
+#st.sidebar.subheader("Dados de Vendas de Carros")
+#st.sidebar.dataframe(car_data.head(10), width=300, height=200)
 # Exibir informações sobre o projeto
-st.sidebar.subheader("Sobre o Projeto")
-st.sidebar.write("Este projeto tem o intuito de criar histogramas interativos com os dados de vendas de carros. Você pode explorar os dados e visualizar a distribuição dos odômetros dos veículos.")
+#st.sidebar.subheader("Sobre o Projeto")
+#st.sidebar.write("Este projeto tem o intuito de criar histogramas interativos com os dados de vendas de carros. Você pode explorar os dados e visualizar a distribuição dos odômetros dos veículos.")
